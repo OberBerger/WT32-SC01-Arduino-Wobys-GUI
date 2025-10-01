@@ -1,0 +1,194 @@
+# LGPL v2.1 Compliance Instructions for WobysGUI Firmware
+
+This document provides instructions necessary for compliance with the GNU Lesser General Public License, Version 2.1 (LGPL v2.1) as applied to the WobysGUI Firmware. Our firmware utilizes LGPL v2.1-licensed libraries, notably the ESP32 Arduino Core and ESP8266Audio, which are statically linked into the final executable.
+
+Under LGPL v2.1 Section 3, recipients of a derivative work that statically links an LGPL-licensed library must be provided with the object code of the application, allowing them to modify the LGPL Library and then relink to produce a modified executable.
+
+---
+
+## IMPORTANT DISCLAIMER:
+This document is for informational purposes only and does not constitute legal advice. It is your responsibility to consult with a legal professional to ensure full compliance with all applicable license terms, especially when distributing a commercial product.
+
+---
+
+## 1. WobysGUI Firmware Components & Licensing Overview
+
+The WobysGUI Firmware is composed of the following:
+
+*   **Proprietary and Confidential Components (Closed Source):**
+    *   **Source Code:** NOT PROVIDED. These are proprietary code developed by György Oberländer.
+    *   **Provided form:** Object files (`.o` files).
+    *   **Proprietary License:** Governed by separate proprietary license terms provided with the product.
+    *   **List of proprietary `.o` files included in this package:**
+        *   `BLEManager.cpp.o`
+        *   `WifiManager.cpp.o`
+        *   `UILayer.cpp.o`
+        *   `ScreenManager.cpp.o`
+        *   `TextUI.cpp.o`
+        *   `ButtonUI.cpp.o`
+        *   `ToggleButtonUI.cpp.o`
+        *   `ClickableListUI.cpp.o`
+        *   `StatusbarUI.cpp.o`
+        *   `ToggleSwitchUI.cpp.o`
+        *   `SeekbarUI.cpp.o`
+        *   `KeyboardUI.cpp.o`
+        *   `GridLayoutUI.cpp.o`
+        *   `ImageUI.cpp.o`
+        *   `MessageBoardElement.cpp.o`
+        *   `ScreenSaverManager.cpp.o`
+        *   `IconElement.cpp.o`
+        *   `ClockLabelUI.cpp.o`
+
+*   **Open Source Components (Apache License 2.0):**
+    *   **Source Code:** PROVIDED in this package.
+    *   **License:** Apache License 2.0.
+    *   **List of Apache 2.0 source files included in this package:**
+        *   `WobysGUI.ino`
+        *   `SystemInitializer.cpp`, `SystemInitializer.h`
+        *   `SettingsManager.cpp`, `SettingsManager.h`
+        *   `PowerManager.cpp`, `PowerManager.h`
+        *   `RFIDManager.cpp`, `RFIDManager.h`
+        *   `LanguageManager.cpp`, `LanguageManager.h`
+        *   `LanguageAssets.cpp`, `LanguageAssets.h`
+        *   `TimeManager.cpp`, `TimeManager.h`
+        *   `AudioManager.cpp`, `AudioManager.h`
+        *   `SDManager.cpp`, `SDManager.h`
+        *   `ClickSoundData.cpp`, `ClickSoundData.h`
+        *   `MainUI.cpp`, `MainUI.h`
+        *   `WifiUI.cpp`, `WifiUI.h`
+        *   `SettingsUI.cpp`, `SettingsUI.h`
+        *   `BLEUI.cpp`, `BLEUI.h`
+        *   `UIElement.cpp`, `UIElement.h`
+        *   `StatusbarElement.cpp`, `StatusbarElement.h`
+        *   `Config.h`, `ConfigAudioUser.h`, `ConfigFonts.h`, `ConfigHardwareUser.h`, `ConfigLGFXUser.h`, `ConfigUIUser.h`
+        *   `ListItem.h`, `_FixIt.h`, `_Licenses.h`, `_Struct.h`
+
+*   **Third-Party LGPL v2.1-licensed Libraries (Source Code links provided):**
+    *   **ESP32 Arduino Core:**
+        *   **Source Code:** [https://github.com/espressif/arduino-esp32](https://github.com/espressif/arduino-esp32)
+        *   **Version used:** 3.3.0
+        *   **License:** LGPL v2.1 ([https://github.com/espressif/arduino-esp32/blob/master/LICENSE.md](https://github.com/espressif/arduino-esp32/blob/master/LICENSE.md))
+    *   **MFRC522 Library Suite:**
+        *   **Source Code:** [https://github.com/OSSLibraries/Arduino_MFRC522v2](https://github.com/OSSLibraries/Arduino_MFRC522v2)
+        *   **Version used:** 2.0.6
+        *   **License:** LGPL v2.1 ([https://github.com/OSSLibraries/Arduino_MFRC522v2/blob/master/LICENSE](https://github.com/OSSLibraries/Arduino_MFRC522v2/blob/master/LICENSE))
+
+*   **Third-Party Permissively-licensed Libraries (Source Code links provided):**
+    *   **LovyanGFX Library:**
+        *   **Source Code:** [https://github.com/lovyan03/LovyanGFX](https://github.com/lovyan03/LovyanGFX)
+        *   **Version used:** 1.2.7
+        *   **License:** FreeBSD License ([https://github.com/lovyan03/LovyanGFX/blob/master/license.txt](https://github.com/lovyan03/LovyanGFX/blob/master/license.txt))
+    *   **ArduinoJson Library:**
+        *   **Source Code:** [https://arduinojson.org/](https://arduinojson.org/) (Link from library.properties)
+        *   **Version used:** 7.4.2
+        *   **License:** MIT License
+    *   **LittleFS Filesystem Library:**
+        *   **Source Code:** Integrated within ESP32 Arduino Core. Refer to ESP32 Arduino Core source link.
+        *   **Version used:** Integrated with Arduino Core for ESP32 v3.3.0
+        *   **License:** BSD 3-Clause License
+    *   **NimBLE Bluetooth Low Energy Host Stack:**
+        *   **Source Code:** Integrated within ESP32 Arduino Core (often a specific NimBLE-Arduino fork). Refer to ESP32 Arduino Core source link.
+        *   **Version used:** 2.3.6 (As integrated with Arduino Core for ESP32 v3.3.0 or later)
+        *   **License:** Apache License 2.0
+    *   **ProFont:**
+        *   **Source Code:** (Often distributed as a `.c` file, no central repo)
+        *   **Version used:** ProFont Distribution 2.2
+        *   **License:** MIT License
+    *   **Open Iconic Fonts:**
+        *   **Source Code:** (Often distributed as a `.c` file, e.g., by U8g2)
+        *   **Version used:** 2
+        *   **License:** 2-Clause BSD License
+    *   **Adobe / Digital Equipment Corporation Fonts:**
+        *   **Source Code:** (Often distributed as `.c` files in graphics libraries)
+        *   **Version used:** 1984-1989, 1994
+        *   **License:** Custom Permissive License (as provided in the `adobex11font.c` header)
+
+---
+
+## 2. LGPL v2.1 Compliance: How to Relink the WobysGUI Firmware
+
+To comply with LGPL v2.1, we provide the object code (`.o` files) of our application. This allows you, the recipient, to modify the LGPL v2.1-licensed libraries (e.g., ESP32 Arduino Core, ESP8266Audio, MFRC522) and then relink them with our provided object code to produce a modified executable.
+
+### Prerequisites for Relinking:
+
+1.  **Operating System:** Windows, Linux, or macOS with appropriate shell/terminal access.
+2.  **ESP-IDF Toolchain:** You will need the `xtensa-esp32-elf-g++` and `xtensa-esp32-elf-ld` (linker) binaries, typically installed as part of the [ESP-IDF framework](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html) or the [ESP32 Arduino Core setup](https://docs.arduino.cc/hardware/esp32-devkitc).
+3.  **Arduino IDE / ESP32 Arduino Core Version:** The firmware was built with ESP32 Arduino Core **v3.3.0**. Ensure your environment matches this version to avoid linking errors.
+4.  **LGPL Library Source Code:** You must obtain the source code for the LGPL v2.1-licensed libraries from their respective official repositories (links provided above).
+
+### Included in this LGPL Compliance Package:
+
+*   **Your Proprietary Object Files:** All `.o` files corresponding to our proprietary `.cpp` source code (as listed in Section 1).
+*   **Your Open Source (Apache 2.0) Source Files:** All `.h`, `.cpp`, and `.ino` files licensed under Apache 2.0 (as listed in Section 1).
+
+### Step-by-Step Relinking Instructions:
+
+**(Note: This is a general guide. Specific linker flags and paths may vary slightly based on your exact environment and chosen build system. These instructions assume you are working from a directory where all necessary `.o` files are generated.)**
+
+1.  **Obtain LGPL Library Source Code:**
+    *   Download the source code for ESP32 Arduino Core v3.3.0 from its GitHub repository: [https://github.com/espressif/arduino-esp32/releases/tag/3.3.0](https://github.com/espressif/arduino-esp32/releases/tag/3.3.0)
+    *   Download the source code for ESP8266Audio (specify version if needed, otherwise latest): [https://github.com/earlephilhower/ESP8266Audio](https://github.com/earlephilhower/ESP8266Audio)
+    *   Download the source code for MFRC522 Library Suite (specify version if needed, otherwise latest): [https://github.com/OSSLibraries/Arduino_MFRC522v2](https://github.com/OSSLibraries/Arduino_MFRC522v2)
+
+2.  **(Optional) Modify LGPL Library Source:**
+    *   Make your desired changes to the LGPL library source files.
+
+3.  **Compile LGPL Library Source Files:**
+    *   Compile the LGPL library source files (your modified ones, or the original if no modifications) into `.o` object files. This typically involves using `xtensa-esp32-elf-g++` with specific flags matching the Arduino Core build environment (e.g., `-Os -std=gnu++20 -ffunction-sections -fdata-sections` etc.).
+    *   You will also need to compile any other LGPL object files from the ESP32 Arduino Core that your project uses, if they are not already provided by the core in `.a` archives. A full Arduino build will typically generate these `.o` files and then archive them.
+
+4.  **Prepare Your Application's Object Files:**
+    *   For your **Proprietary Components:** Use the provided `.o` files in this package.
+    *   For your **Open Source (Apache 2.0) Components:** You can either compile them yourself from the provided source code (using `xtensa-esp32-elf-g++`) or use their `.o` files if also provided in this package.
+
+5.  **Relink All Object Files:**
+    *   Identify all `.o` files from your application (proprietary, Apache 2.0), and all `.o` files (or `.a` archives) from the LGPL libraries (your modified versions, or the originals from the Arduino Core installation).
+    *   Use the `xtensa-esp32-elf-g++` command to link them together. The order of linking the libraries (`-l` flags) is important. You might need to use `--whole-archive` for certain LGPL `.a` files to ensure all necessary `.o` files from those archives are included, especially if they have reverse dependencies.
+
+    **Example Linker Command (Simplified, actual command will be much longer):**
+
+    ```bash
+    # Assuming all .o files are in the current directory or specified via -L/-I
+    # You will need to determine the full set of .o files and archives
+    # from your Arduino build process that are part of the final firmware.
+
+    xtensa-esp32-elf-g++ \
+        <YOUR_PROPRIETARY_OBJ_FILE_1>.o \
+        <YOUR_PROPRIETARY_OBJ_FILE_2>.o \
+        ... # all your proprietary .o files
+
+        <YOUR_APACHE_2_0_OBJ_FILE_1>.o \
+        <YOUR_APACHE_2_0_OBJ_FILE_2>.o \
+        ... # all your Apache 2.0 .o files (or source if you compile them)
+
+        # LGPL libraries (replace with your compiled LGPL .o files or reference .a archives)
+        # Use -L and -l for archives, or list individual .o files
+        -L<PATH_TO_ESP32_ARDUINO_CORE_LIBS> -l<arduino_core_lib1> -l<arduino_core_lib2> ... \
+        -L<PATH_TO_ESP8266AUDIO_LIBS> -l<esp8266audio_lib> \
+        -L<PATH_TO_MFRC522_LIBS> -l<mfrc522_lib> \
+        # ... other LGPL .o files or archives you want to relink ...
+
+        # Other permissively licensed libraries (replace with their .a files or list .o files)
+        -L<PATH_TO_LOVYANGFX_LIBS> -l<lovyangfx_lib> \
+        -L<PATH_TO_ARDUINOJSON_LIBS> -l<arduinojson_lib> \
+        # ... etc.
+
+        -o <YOUR_FIRWARE_EXECUTABLE>.elf \
+        -nostdlib \
+        -Wl,--gc-sections \
+        -T <PATH_TO_LINKER_SCRIPT>.ld \
+        # ... other linker flags from your Arduino build ...
+    ```
+
+    **Finding the Full Linker Command:** The easiest way to get the exact linker command is to compile your project once in the Arduino IDE with "Show verbose output during compilation" enabled in preferences. The last few lines of the output will show the full `xtensa-esp32-elf-g++` command used for linking. Copy this command and replace the LGPL library references (e.g., specific LGPL `.a` files) with your modified ones.
+
+---
+
+## 3. Contact for LGPL Compliance Questions
+
+If you have any questions regarding this LGPL Compliance Package or require assistance with relinking, please contact:
+
+György Oberländer
+support@wobys.com
+
+---
