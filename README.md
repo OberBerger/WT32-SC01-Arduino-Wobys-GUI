@@ -2,6 +2,8 @@
 
 Modular, touchscreen GUI framework for ESP32 (WT32-SC01 Plus). Features Wi-Fi, BLE, NTP, battery, RFID, audio management in modern C++. Demo has limited interactions. Video, guides & full version at wobys.com. Great base for embedded touchscreen projects!
 
+![WobysGUI Main Screenshot](images/main_screen.png)
+
 ## Overview
 
 This project provides a comprehensive and modular Graphical User Interface (GUI) framework designed for the WT32-SC01 Plus development board, leveraging the ESP32 microcontroller and the Arduino framework. It offers a rich set of features for managing essential embedded system functionalities through an intuitive touchscreen interface.
@@ -31,9 +33,9 @@ This project is specifically developed for the **WT32-SC01 Plus** development bo
 
 ## Visuals (Video & Screenshots)
 
-A demo video showcasing the Wobys GUI in action is available on YouTube:
+[![Wobys GUI Demo Video Thumbnail](images/settings_screen.png)](https://www.youtube.com/watch?v=vYAENE0a03o)
 
-**[Wobys GUI Demo Video](https://www.youtube.com/watch?v=vYAENE0a03o)**
+*(Click on the image above to watch the demo video.)*
 
 Further screenshots, GIFs, and detailed visual demonstrations of the interface can be found on our official website: **[wobys.com](https://wobys.com/)**
 
